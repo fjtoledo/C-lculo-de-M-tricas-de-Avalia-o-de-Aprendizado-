@@ -12,12 +12,11 @@ Original file is located at
 from keras import datasets, layers, models
 import matplotlib.pyplot as plt
 import tensorflow as tf
-
+import io
 import numpy as np
-
-import seaborn as sns
-
 import pandas as pd
+import seaborn as sns
+from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score, roc_curve, auc
 
 tf.__version__
 
@@ -76,16 +75,6 @@ plt.ylabel('True label')
 plt.xlabel('Predicted label')
 plt.show()
 
-import io
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import tensorflow as tf
-from tensorflow import keras
-from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score, roc_curve, auc
-
-
 def evaluate_model(y_true, y_pred):
 
     accuracy = accuracy_score(y_true, y_pred)
@@ -124,10 +113,6 @@ model1.compile(
     loss='sparse_categorical_crossentropy',
     metrics=['accuracy']
 )
-
-import io
-
-from tensorflow import keras
 
 file_writer = tf.summary.create_file_writer(logdir + '/cm')
 
